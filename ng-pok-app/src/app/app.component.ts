@@ -4,7 +4,7 @@ import { Pokemon } from './pokemon';
 
 @Component({
   selector: 'app-root',
-  templateUrl: `<h1>List de pokemons</h1>`
+  templateUrl: 'app.component.html'
 })
 export class AppComponent implements OnInit{
   pokemonList: Pokemon[] = POKEMONS;
