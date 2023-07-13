@@ -8,21 +8,32 @@
     
 </head>
 <body>
-
-    <h1>Pokemon List </h1>
-    <input #input (keyup.enter)="selectPokemon(input.value)" type="number">
-    <p *ngIf="pokemonSelected">
-        {{pokemonSelected.name}}
-    </p>
-    <p *ngIf="!pokemonSelected">
-        no sorry
-    </p>
-    <p *ngFor="let pokemon of pokemonList"> 
-        <span style="color: rgb(234, 48, 79);font-weight: bolder;">
-            {{pokemon.name}}
-        </span>
-    </p>
-   
+    <div class="container">
+        <h1 class="center">Pokemon List </h1>
+        <input #input (keyup.enter)="selectPokemon(input.value)" type="number">
+        <p *ngIf="pokemonSelected">
+            {{pokemonSelected.name}}
+        </p>
+        <p *ngIf="!pokemonSelected">
+            no sorry
+        </p>
+        <div class="row">
+            <div *ngFor="let pokemon of pokemonList" class="col s12 m6 l4">
+                <div class="card horizontal">
+                        <div class="card-image">
+                          <img class="activator" src="{{pokemon.picture}}">
+                        </div>
+                        <div class="card-stacked">
+                        <div class="card-content">
+                          <span style="font-family: Geneva;" class="card-title activator black-text">{{pokemon.name}}</span>
+                          <span class="activator black-text">{{pokemon.created}}</span>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     
 </body>
 </html>
