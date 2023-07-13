@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hello world</h1>
+    <h1>Pokemon List </h1>
+    <input #input (keyup.enter)="selectPokemon(input.value)" type="number">
+    <p>{{pokemonSelected?.name}}</p>
+    <p style="color: rgb(234, 48, 79);font-weight: bolder;">{{pokemonList[0].name}}</p>
+    <p style="color: rgb(234, 48, 79);font-weight: bolder;">{{pokemonList[1].name}}</p>
 </body>
 </html>
