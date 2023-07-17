@@ -21,10 +21,17 @@ export class DetailPokemonComponentComponent implements OnInit{
       this.pokemonService.getPokemonById(+pokemonId).subscribe(pokemon=>this.pokemon = pokemon);
     }
   }
+
+  deletePokemon(pokemon:Pokemon){
+    this.pokemonService.deletePokemonById(pokemon.id).
+    subscribe(()=>this.goBack());
+  }
+
   goBack(){
     this.router.navigate(['/pokemons']);
   }
   goToEditPokemon(pokemon:Pokemon){
     this.router.navigate(['/edit/pokemon', pokemon.id]);
   }
+
 }
