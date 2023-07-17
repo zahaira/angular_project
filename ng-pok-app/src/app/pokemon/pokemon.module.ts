@@ -14,6 +14,7 @@ import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
 import { LoaderComponent } from './loader/loader.component';
 import { authGuard } from '../auth.guard';
+
 const pokemonRoutes: Routes = [
   { path: 'edit/pokemon/:id', component: EditPokemonComponent, canActivate:[authGuard]},
   { path: 'pokemon/add', component: AddPokemonComponent, canActivate:[authGuard]},
@@ -23,6 +24,7 @@ const pokemonRoutes: Routes = [
 
 @NgModule({
   
+
   declarations: [
     BorderCardDirective,
     PokemonTypeColorPipe,

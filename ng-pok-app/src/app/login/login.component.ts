@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit{
   }
 
   setMessage(){
+
     if(this.auth.isLoggedIn){
       this.message ='vous etes connecte';
     }else{
@@ -32,7 +33,9 @@ export class LoginComponent implements OnInit{
     subscribe((isLoggedIn:boolean)=>{
       this.setMessage();
       if(isLoggedIn){
+      
       this.router.navigate(['/pokemons']);
+     
       }else{
         this.password = '';
         this.router.navigate(['/login']);
