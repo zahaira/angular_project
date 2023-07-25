@@ -23,7 +23,6 @@ const pokemonRoutes: Routes = [
  ];
 
 @NgModule({
-  
 
   declarations: [
     BorderCardDirective,
