@@ -8,19 +8,33 @@ export class PokemonService {
   constructor(private http: HttpClient){}
 
   getPokemonList(): Observable<Pokemon[]> {
-    return this.http.get<Pokemon[]>('api/pokemons').pipe(
+    return this.http.get<Pokemon[]>('http://localhost:3000/api/pokemons').pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handlError(error,[]))
     );
   }
-  
+
   getPokemonById(pokemonId: number): Observable<Pokemon|undefined>{
-    return this.http.get<Pokemon>(`api/pokemons/${pokemonId}`).pipe(
+    return this.http.get<Pokemon>(`http://localhost:3000/api/pokemons/${pokemonId}`).pipe(
       tap((response)=>this.log(response)),
       catchError((error) => this.handlError(error,undefined))
     );
   }
+
+  // getPokemonById(pokemonId: number): Observable<Pokemon|undefined>{
+  //   return this.http.get<Pokemon>(`http://localhost:3000/api/pokemons/${pokemonId}`).pipe(
+  //     tap((response)=>this.log(response)),
+  //     catchError((error: HttpErrorResponse ) => {
+  //       if (error.status === 401) {
+  //         alert('401');
+  //       }
+  //       return throwError(error);
+
+  //     })
+  //   );
+  // }
   
+
   searchPokemonList(term: string):Observable<Pokemon[]>{
     if(term.length<=1){
       return of([]);
@@ -36,7 +50,7 @@ export class PokemonService {
       headers: new HttpHeaders({'Content-type': 'application/json'})
     };
 
-    return this.http.put('api/pokemons', pokemon, httpOptions).pipe(
+    return this.http.put('http://localhost:3000/api/pokemons', pokemon, httpOptions).pipe(
       tap((response)=>this.log(response)),
       catchError((error)=>this.handlError(error,null))
     );
@@ -54,7 +68,7 @@ export class PokemonService {
   }
 
   deletePokemonById(pokemonId:number):Observable<null>{
-    return this.http.delete(`api/pokemons/${pokemonId}`).pipe(
+    return this.http.delete(`http://localhost:3000/api/pokemons/${pokemonId}`).pipe(
       tap((response)=>this.log(response)),
       catchError((error)=>this.handlError(error,null))
     );
