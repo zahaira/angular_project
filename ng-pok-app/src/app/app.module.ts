@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonModule } from './pokemon/pokemon.module';
 import{HttpClientModule} from '@angular/common/http';
-import { InMemoryDataService } from './in-memory-data.service';
+// import { InMemoryDataService } from './in-memory-data.service';
 import {HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { LoginComponent } from './login/login.component';
 @NgModule({
@@ -19,7 +19,7 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation:false}),
+    //HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation:false}),
     PokemonModule,
     AppRoutingModule
   ],
