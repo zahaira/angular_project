@@ -39,7 +39,7 @@ export class PokemonService {
     if(term.length<=1){
       return of([]);
     }
-    return this.http.get<Pokemon[]>(`api/pokemons/?name=${term}`).pipe(
+    return this.http.get<Pokemon[]>(`http://localhost:3000/api/pokemons?name=${term}`).pipe(
       tap((response)=>this.log(response)),
       catchError((error) => this.handlError(error,[]))
     );
@@ -50,7 +50,7 @@ export class PokemonService {
       headers: new HttpHeaders({'Content-type': 'application/json'})
     };
 
-    return this.http.put('http://localhost:3000/api/pokemons', pokemon, httpOptions).pipe(
+    return this.http.put(`http://localhost:3000/api/pokemons/${pokemon.id}`, pokemon, httpOptions).pipe(
       tap((response)=>this.log(response)),
       catchError((error)=>this.handlError(error,null))
     );
@@ -61,7 +61,7 @@ export class PokemonService {
       headers: new HttpHeaders({'Content-type': 'application/json'})
     };
 
-    return this.http.post<Pokemon>('api/pokemons', pokemon, httpOptions).pipe(
+    return this.http.post<Pokemon>('http://localhost:3000/api/pokemons', pokemon, httpOptions).pipe(
       tap((response)=>this.log(response)),
       catchError((error)=>this.handlError(error,null))
     );
